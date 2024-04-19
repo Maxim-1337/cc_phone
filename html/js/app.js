@@ -4961,9 +4961,10 @@ $(document).on("click", "#Snake-Click-Back", (Snake_Out = function Snake_Out() {
 
 //----------------------------------------------------------------------------------------------------Garage
 
+// MUSSTE NICKNAME BZW NAME RAUSMACHEN WEIL DEFAULT ESX DAS NICHT HAT W
 $(document).on("click", "#M-App-12", function() {
     currentApp = "Garage"
-
+    
     $("#Garage-Send-Contents").empty()
 
     $.post('https://cc_phone/getGarage', JSON.stringify({
@@ -4972,10 +4973,10 @@ $(document).on("click", "#M-App-12", function() {
             if (garage.job == 'civ') {
                 $("#Garage-Send-Contents").append(`
                 <div id="${index}-Box" class="Garage-Send-Contents-Box">
-                    <div id="${index}-Title" class="Garage-Send-Contents-Title">${garage.nickname}</div>
+                    <div id="${index}-Title" class="Garage-Send-Contents-Title">${garage.plate}</div>
                     <div id="${index}-Plate" class="Garage-Send-Contents-Plate">${garage.plate}</div>
 
-                    <div id="Garage-Send-Container" data-type="${garage.type}" data-status="${garage.status}">
+                    <div id="Garage-Send-Container" data-type="${garage.type}" data-status="${garage.stored}">
                         <svg id="Garage-Send-Loc-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.4vh" height="4vh" viewBox="0 0 586 978">
                             <g id="Garage-Send-Loc-Img" transform="translate(0,978) scale(0.1,-0.1)">
                                 <path d="M2765 9768 c-573 -26 -1154 -239 -1620 -591 -746 -565 -1172 -1453 -1142 -2382 10 -296 72 -627 170 -906 26 -75 557 -1215 1397 -3005 745 -1586 1357 -2883 1360 -2883 5 0 2627 5574 2699 5737 199 451 275 1036 201 1547 -134 922 -699 1720 -1521 2149 -484 253 -982 361 -1544 334z m426 -1791 c364 -95 648 -384 741 -753 32 -128 32 -360 0 -488 -79 -314 -306 -581 -599 -706 -135 -57 -230 -74 -403 -74 -173 0 -268 17 -403 74 -233 100 -442 307 -542 538 -61 140 -79 236 -79 412 0 172 17 269 73 401 113 270 374 505 646 584 179 53 393 57 566 12z"></path>
