@@ -802,9 +802,9 @@ RegisterNUICallback('changeGroupName', function(data, cb)
 end)
 
 RegisterNUICallback('getGarage', function(data, cb)
-    local data = exports['cc_core']:getVehicles()
-
-    cb(data or {})
+    ESX.TriggerServerCallback('cc_phone:getVehs', function(vehs)
+        cb(vehs or {})
+    end)
 end)
 
 RegisterNUICallback('getGarageWaypoint', function(data, cb)
