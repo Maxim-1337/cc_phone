@@ -1902,3 +1902,25 @@ function executeQuery()
         end
     end
 end
+
+-- NEW
+
+ESX.RegisterServerCallback('cc_phone:getVehs', function(source, cb)
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+	MySQL.query('SELECT * FROM `owned_vehicles` WHERE `owner` = @identifier',{
+		['@identifier'] = xPlayer.identifier,
+	}, function(result)
+
+		local vehicles = {}
+		for k,v in pairs(result) do
+			table.insert(vehicles, {
+				vehicle = json.decode(v.vehicle),
+				plate = v.plate,
+                stored = v.status,
+                type = v.type,
+			})
+		end
+		cb(vehicles)
+	end)
+end)
