@@ -1919,6 +1919,7 @@ ESX.RegisterServerCallback('cc_phone:getVehs', function(source, cb)
 				plate = v.plate,
                 stored = v.status,
                 type = v.type,
+                job = v.job,
 			})
 		end
 		cb(vehicles)
